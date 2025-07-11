@@ -30,8 +30,4 @@ Pass/Fail – 1 for pass, 0 for fail
 
 
 
-*Expected Learning Outcomes:* 
 
-Understand the basics of regression, classification, and clustering algorithms 
-Practice applying simple machine learning methods to real data 
-Interpret and discuss basic model results
