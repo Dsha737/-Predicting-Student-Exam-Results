@@ -15,10 +15,16 @@ Try K-Means Clustering to group students based on their study time and attendanc
 *Dataset Details:* 
 
 The dataset contains the following columns: 
+
 StudentID – Unique student identifier 
+
 AttendanceRate – Percentage of classes attended 
+
 StudyTime – Weekly study hours 
+
 FinalExamScore – Exam score (0-100) 
+
+
 Pass/Fail – 1 for pass, 0 for fail 
 
 
