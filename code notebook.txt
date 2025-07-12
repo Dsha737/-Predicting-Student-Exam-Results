@@ -1,25 +1,19 @@
 notebooks/student_exam_analysis.ipynb Will Include:
 1. Linear Regression
 Input: StudyTime
-
 Output: FinalExamScore
+Plot regression line
+Evaluation: R² score, MSE
 
-✅ Plot regression line
-
-✅ Evaluation: R² score, MSE
 
 2. Logistic Regression
 Inputs: AttendanceRate, StudyTime
-
 Output: Pass/Fail
+Confusion Matrix
+Accuracy Score
 
-✅ Confusion Matrix
-
-✅ Accuracy Score
 
 3. K-Means Clustering
 Inputs: AttendanceRate, StudyTime
-
-✅ Scatter plot with cluster colors
-
-✅ Describe each cluster
+Scatter plot with cluster colors
+Describe each cluster
