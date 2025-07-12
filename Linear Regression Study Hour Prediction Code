@@ -1,0 +1,61 @@
+#  Import libraries
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+from sklearn.linear_model import LinearRegression
+from sklearn.metrics import mean_squared_error, r2_score
+=======================================================================
+# Load dataset
+df = pd.read_csv("student_data.csv")  
+# Show first few rows
+df.head()
+====================================================
+# Define features and target
+X = df[["StudyTime"]]          # Input
+y = df["FinalExamScore"]       # Output
+
+===================================================================
+# Train the Linear Regression model
+model = LinearRegression()
+model.fit(X, y)
+===================================================================================
+# Visualize actual vs predicted
+plt.figure(figsize=(10, 6))
+sns.scatterplot(x="StudyTime", y="FinalExamScore", data=df, label="Actual Scores", s=100)
+sns.lineplot(x="StudyTime", y="PredictedScore", data=df, color='red', label="Regression Line")
+plt.title("Linear Regression: Study Time vs Final Exam Score")
+plt.xlabel("Study Time (hours/week)")
+plt.ylabel("Final Exam Score")
+plt.legend()
+plt.grid(True)
+plt.show()
+========================================================================================
+# Print slope and intercept
+slope = model.coef_[0]
+intercept = model.intercept_
+print(f"\nFormula: FinalExamScore = {slope:.2f} * StudyTime + {intercept:.2f}")
+====================================================================================
+#  Model Evaluation
+mse = mean_squared_error(y, df["PredictedScore"])
+r2 = r2_score(y, df["PredictedScore"])
+print(f"Mean Squared Error (MSE): {mse:.2f}")
+print(f"R² Score: {r2:.2f}")
+========================================================================================
+# Predict scores for new StudyTime values
+new_study_times = pd.DataFrame({"StudyTime": [6, 8, 10]})  # With column name
+predicted_scores = model.predict(new_study_times)
+==============================================================================
+print("\n Predictions for new students:")
+for hours, score in zip(new_study_times["StudyTime"], predicted_scores):
+    print(f"  If a student studies {hours} hours → predicted score: {score:.2f}")
+=====================================================================================================================
+output:
+Formula: FinalExamScore = 4.59 * StudyTime + 35.79
+Mean Squared Error (MSE): 11.39
+R² Score: 0.96
+
+ Predictions for new students:
+  If a student studies 6 hours → predicted score: 63.30
+  If a student studies 8 hours → predicted score: 72.47
+  If a student studies 10 hours → predicted score: 81.64
